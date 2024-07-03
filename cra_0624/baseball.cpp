@@ -10,7 +10,9 @@ using namespace std;
 class Baseball {
 public:
 	void guess(const string& string) {
-		throw length_error("");
+		if (string.size() != 3) {
+			throw length_error("");
+		}
 	}
 private:
 };
