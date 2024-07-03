@@ -22,6 +22,7 @@ public:
 		if (numbers == answer) {
 			return { true, 3, 0 };
 		}
+		return { false, 2, 0 };
 	}
 private:
 	string answer;
