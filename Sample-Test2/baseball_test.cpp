@@ -33,11 +33,7 @@ TEST_F(BaseballFixture, ExceptionTest) {
 }
 
 TEST_F(BaseballFixture, CorrectResultTest) {
-	GuessResult result = game.guess("123");
-
-	EXPECT_TRUE(result.solved);
-	EXPECT_EQ(3, result.strikes);
-	EXPECT_EQ(0, result.balls);
+	resultTest("123", { true, 3, 0 });
 }
 
 TEST_F(BaseballFixture, TwoStrikeOneBallResultTest) {
