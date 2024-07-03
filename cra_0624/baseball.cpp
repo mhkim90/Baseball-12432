@@ -17,6 +17,12 @@ public:
 		if (numbers.find_first_not_of("0123456789") != -1) {
 			throw invalid_argument("");
 		}
+
+		if (numbers[0] == numbers[1] ||
+			numbers[1] == numbers[2] ||
+			numbers[2] == numbers[0]) {
+			throw invalid_argument("");
+			}
 	}
 private:
 };

@@ -21,4 +21,5 @@ public:
 TEST_F(BaseballFixture, ExceptionTest) {
 	assertTest("12");
 	assertTest("12s");
+	assertTest("121");
 }
