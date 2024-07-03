@@ -12,3 +12,7 @@ public:
 TEST_F(BaseballFixture, test) {
 	EXPECT_THROW(game.guess(string("12")), length_error);
 }
+
+TEST_F(BaseballFixture, test2) {
+	EXPECT_THROW(game.guess(string("12s")), invalid_argument);
+}
