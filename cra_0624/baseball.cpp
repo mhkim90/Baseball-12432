@@ -22,7 +22,18 @@ public:
 		if (numbers == answer) {
 			return { true, 3, 0 };
 		}
-		return { false, 2, 0 };
+		
+		int strike = 0;
+		int ball = 0;
+		for (int i = 0; i < 3; i++) {
+			if (answer[i] == numbers[i]) strike++;
+			else {
+				for (int j = 0; j < 3; j++) {
+					if (i != j && answer[i] == numbers[j]) ball++;
+				}
+			}
+		}
+		return { false, strike, ball };
 	}
 private:
 	string answer;
