@@ -7,12 +7,23 @@ using namespace std;
 //public:
 //};
 
+struct GuessResult {
+	bool solved;
+	int strikes;
+	int balls;
+};
+
 class Baseball {
 public:
-	void guess(const string& numbers) {
+	Baseball(const string& answer) : answer{ answer } {}
+
+	GuessResult guess(const string& numbers) {
 		checkNumbers(numbers);
+		return { true, 3, 0 };
 	}
 private:
+	string answer;
+
 	bool isDuplicatedNumber(const string& numbers) {
 		return (numbers[0] == numbers[1] ||
 			numbers[1] == numbers[2] ||

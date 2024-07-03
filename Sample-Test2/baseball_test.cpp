@@ -6,7 +6,7 @@ using namespace std;
 
 class BaseballFixture : public ::testing::Test {
 public:
-	Baseball game;
+	Baseball game{ "123" };
 	void assertTest(string numbers) {
 		try {
 			game.guess(numbers);
@@ -22,4 +22,12 @@ TEST_F(BaseballFixture, ExceptionTest) {
 	assertTest("12");
 	assertTest("12s");
 	assertTest("121");
+}
+
+TEST_F(BaseballFixture, CorrectResultTest) {
+	GuessResult result = game.guess("123");
+
+	EXPECT_TRUE(result.solved);
+	EXPECT_EQ(3, result.strikes);
+	EXPECT_EQ(0, result.balls);
 }
