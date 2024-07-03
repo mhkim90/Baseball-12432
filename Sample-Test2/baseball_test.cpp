@@ -7,12 +7,18 @@ using namespace std;
 class BaseballFixture : public ::testing::Test {
 public:
 	Baseball game;
+	void assertTest(string numbers) {
+		try {
+			game.guess(numbers);
+			FAIL();
+		}
+		catch (exception e) {
+
+		}
+	}
 };
 
-TEST_F(BaseballFixture, test) {
-	EXPECT_THROW(game.guess(string("12")), length_error);
-}
-
-TEST_F(BaseballFixture, test2) {
-	EXPECT_THROW(game.guess(string("12s")), invalid_argument);
+TEST_F(BaseballFixture, ExceptionTest) {
+	assertTest("12");
+	assertTest("12s");
 }
