@@ -16,6 +16,14 @@ public:
 
 		}
 	}
+
+	void resultTest(string numbers, GuessResult expected) {
+		GuessResult result = game.guess(numbers);
+
+		EXPECT_EQ(expected.solved, result.solved);
+		EXPECT_EQ(expected.strikes, result.strikes);
+		EXPECT_EQ(expected.balls, result.balls);
+	}
 };
 
 TEST_F(BaseballFixture, ExceptionTest) {
@@ -33,17 +41,9 @@ TEST_F(BaseballFixture, CorrectResultTest) {
 }
 
 TEST_F(BaseballFixture, TwoStrikeOneBallResultTest) {
-	GuessResult result = game.guess("143");
-
-	EXPECT_FALSE(result.solved);
-	EXPECT_EQ(2, result.strikes);
-	EXPECT_EQ(0, result.balls);
+	resultTest("143", { false, 2, 0 });
 }
 
 TEST_F(BaseballFixture, OneStrikeTwoBallResultTest) {
-	GuessResult result = game.guess("132");
-
-	EXPECT_FALSE(result.solved);
-	EXPECT_EQ(1, result.strikes);
-	EXPECT_EQ(2, result.balls);
+	resultTest("132", { false, 1, 2 });
 }
