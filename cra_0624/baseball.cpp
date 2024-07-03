@@ -19,7 +19,9 @@ public:
 
 	GuessResult guess(const string& numbers) {
 		checkNumbers(numbers);
-		return { true, 3, 0 };
+		if (numbers == answer) {
+			return { true, 3, 0 };
+		}
 	}
 private:
 	string answer;
